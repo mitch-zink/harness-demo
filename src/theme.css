@@ -1,0 +1,4 @@
+/* Colors for both pages. src/theme.js narrows color-scheme to light or dark when one is chosen. */
+:root{color-scheme:light dark;--bg:light-dark(#fff,#121212);--fg:light-dark(#111,#e8e8e8);--muted:light-dark(#767676,#9e9e9e);--link:light-dark(#0000ee,#8ab4f8)}
+body{font:16px system-ui;max-width:480px;margin:40px auto;padding:0 16px;background:var(--bg);color:var(--fg)}
+a{color:var(--link)}

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Todo</title>
-<style>body{font:16px system-ui;max-width:480px;margin:40px auto;padding:0 16px;background:#fff;color:#111}li.done{text-decoration:line-through;color:#888}</style></head>
+<script src="src/theme.js"></script><link rel="stylesheet" href="src/theme.css">
+<style>li.done{text-decoration:line-through;color:var(--muted)}</style></head>
 <body><h1>Todo</h1><form id="f"><input id="t" placeholder="Add a task" aria-label="Add a task"><button>Add</button></form><ul id="l"></ul><p id="n"></p><p><a href="settings.html">Settings</a></p>
 <script type="module">
 import { add, toggle, remaining } from './src/todos.js';
