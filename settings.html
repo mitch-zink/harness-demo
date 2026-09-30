@@ -1,4 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Settings</title>
-<style>body{font:16px system-ui;max-width:480px;margin:40px auto;padding:0 16px;background:#fff;color:#111}label{display:block;margin:12px 0}</style></head>
-<body><h1>Settings</h1><label><input type="checkbox" id="compact"> Compact list</label><p><a href="index.html">Back</a></p></body></html>
+<script src="src/theme.js"></script><link rel="stylesheet" href="src/theme.css">
+<style>label{display:block;margin:12px 0}fieldset{border:1px solid var(--muted);border-radius:6px}</style></head>
+<body><h1>Settings</h1><label><input type="checkbox" id="compact"> Compact list</label><fieldset><legend>Appearance</legend><label><input type="radio" name="theme" value="system"> System</label><label><input type="radio" name="theme" value="light"> Light</label><label><input type="radio" name="theme" value="dark"> Dark</label></fieldset>
+<p><a href="index.html">Back</a></p>
+<script>for (const r of document.getElementsByName('theme')) { r.checked = r.value === savedTheme(); r.onchange = () => saveTheme(r.value) }</script></body></html>
