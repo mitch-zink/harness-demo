@@ -1,0 +1,20 @@
+name: Claude Code Review
+
+# Opus once per PR; add the `claude-review-again` label for a second pass. The shared workflow is pinned to a commit
+# because it receives the Claude token.
+on:
+  pull_request:
+    types: [opened, ready_for_review, labeled]
+
+jobs:
+  claude-review:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    uses: mitch-zink/job-bot/.github/workflows/claude-review.yml@a8e815643c9272bae4b8189937a4efcbc1e11283
+    with:
+      runs-on: '["ubuntu-latest"]'
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    secrets:
+      CLAUDE_TOKEN_1: ${{ secrets.CLAUDE_TOKEN_1 }}
