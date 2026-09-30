@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Todo</title>
+<style>body{font:16px system-ui;max-width:480px;margin:40px auto;padding:0 16px;background:#fff;color:#111}li.done{text-decoration:line-through;color:#888}</style></head>
+<body><h1>Todo</h1><form id="f"><input id="t" placeholder="Add a task" aria-label="Add a task"><button>Add</button></form><ul id="l"></ul><p id="n"></p><p><a href="settings.html">Settings</a></p>
+<script type="module">
+import { add, toggle, remaining } from './src/todos.js';
+let list = [];
+const draw = () => { l.innerHTML = list.map(x => `<li class="${x.done ? 'done' : ''}" data-id="${x.id}">${x.text}</li>`).join(''); n.textContent = `${remaining(list)} left` };
+f.onsubmit = e => { e.preventDefault(); list = add(list, t.value); t.value = ''; draw() };
+l.onclick = e => { const id = +e.target.dataset.id; if (id) { list = toggle(list, id); draw() } };
+draw();
+</script></body></html>
